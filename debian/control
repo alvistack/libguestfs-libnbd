@@ -1,0 +1,154 @@
+Source: libnbd
+Section: libs
+Priority: optional
+Standards-Version: 4.5.0
+Maintainer: Wong Hoi Sing Edison <hswong3i@gmail.com>
+Homepage: https://github.com/libguestfs/libnbd/tags
+Vcs-Browser: https://github.com/alvistack/libguestfs-libnbd
+Vcs-Git: https://github.com/alvistack/libguestfs-libnbd.git
+Build-Depends:
+ debhelper,
+ debhelper-compat (= 10),
+ dh-python,
+ dh-ocaml,
+ bash-completion,
+ fuse3 <!nocheck>,
+ gnutls-bin <!nocheck>,
+ iproute2 <!nocheck>,
+ jq <!nocheck>,
+ libfuse3-dev,
+ libgnutls28-dev,
+ libncurses5-dev,
+ libxml2-dev,
+ nbd-server <!nocheck>,
+ nbdkit (>= 1.12.4) <!nocheck>,
+ nbdkit-plugin-dev (>= 1.12.4) <!nocheck>,
+ ocaml-findlib,
+ ocaml-nox,
+ ocamlbuild,
+ pkg-config,
+ python3-dev,
+ qemu-utils <!nocheck>,
+
+Package: libnbd-dev
+Section: libdevel
+Architecture: any
+Description: Network Block Device client library -- development files
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+ .
+ This is the NBD client library in userspace, a simple library for
+ writing NBD clients.
+ .
+ This package contains the development files.
+Depends:
+ ${misc:Depends},
+ libnbd0 (= ${source:Version}),
+
+Package: libnbd0
+Architecture: any
+Description: Network Block Device client library -- shared library
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+ .
+ This is the NBD client library in userspace, a simple library for
+ writing NBD clients.
+ .
+ The key features are:
+ .
+  * Synchronous and asynchronous APIs, both for ease of use and for
+    writing non-blocking, multithreaded clients.
+ .
+  * High performance.
+ .
+  * Minimal dependencies for the basic library.
+ .
+  * Well-documented, stable API.
+ .
+  * Bindings in several programming languages.
+ .
+ This package contains the shared library.
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+
+Package: python3-libnbd
+Architecture: any
+Description: Network Block Device client library -- Python 3 bindings
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+ .
+ This is the NBD client library in userspace, a simple library for
+ writing NBD clients.
+ .
+ This package contains Python 3 bindings and nbdsh, an interactive
+ shell.
+Depends:
+ ${python3:Depends},
+ ${shlibs:Depends},
+ ${misc:Depends},
+
+Package: libnbd-ocaml
+Section: ocaml
+Architecture: any
+Description: Network Block Device client library -- OCaml bindings
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+ .
+ This is the NBD client library in userspace, a simple library for
+ writing NBD clients.
+ .
+ This package contains the OCaml bindings to libnbd.
+Depends:
+ ${misc:Depends},
+ ${ocaml:Depends},
+ ${shlibs:Depends},
+ libnbd0 (= ${source:Version}),
+Provides:
+ ${ocaml:Provides},
+
+Package: libnbd-ocaml-dev
+Section: ocaml
+Architecture: amd64
+Description: Network Block Device client library -- OCaml development files
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+ .
+ This is the NBD client library in userspace, a simple library for
+ writing NBD clients.
+ .
+ This package contains all the files needed to develop OCaml programs
+ which use OCaml bindings to libnbd.
+Depends:
+ ${misc:Depends},
+ ${ocaml:Depends},
+ ${shlibs:Depends},
+ libnbd-dev (= ${source:Version}),
+ libnbd0 (= ${source:Version}),
+Provides:
+ ${ocaml:Provides},
+
+Package: libnbd-bin
+Section: utils
+Architecture: amd64
+Description: Utilities using the Network Block Device client library
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+ .
+ This is the NBD client library in userspace, a simple library for
+ writing NBD clients.
+ .
+ This package contains utilities that make use of libnbd:
+ .
+  - nbdcopy
+  - nbdfuse
+  - nbdinfo
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Provides:
+ nbdfuse,
+Replaces:
+ nbdfuse (<< 1.4.0),
+Conflicts:
+ nbdfuse (<< 1.4.0),

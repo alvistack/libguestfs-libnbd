@@ -214,3 +214,6 @@ Makefile.in
 /tests/synch-parallel
 /tests/synch-parallel-tls
 /valgrind/suppressions
+
+ocamlinit-stamp
+.pybuild/
