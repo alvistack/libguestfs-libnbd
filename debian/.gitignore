@@ -1,0 +1,12 @@
+*.substvars
+*debhelper*
+.debhelper
+autoreconf.*
+files
+libnbd-bin
+libnbd-dev
+libnbd-ocaml
+libnbd-ocaml-dev
+libnbd0
+python3-libnbd
+tmp

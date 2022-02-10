@@ -1,0 +1,3 @@
+libnbd-bin: copyright-without-copyright-notice
+libnbd-bin: initial-upload-closes-no-bugs
+libnbd-bin: zero-byte-file-in-doc-directory

@@ -1,0 +1,5 @@
+libnbd (100:1.11.9-1) UNRELEASED; urgency=medium
+
+  * https://github.com/libguestfs/libnbd/releases/tag/v1.11.9
+
+ -- Wong Hoi Sing Edison <hswong3i@gmail.com>  Sun, 13 Feb 2022 16:07:41 +0800
