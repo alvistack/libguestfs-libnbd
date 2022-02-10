@@ -1,0 +1,99 @@
+Source: libnbd
+Section: libs
+Priority: optional
+Standards-Version: 4.5.0
+Maintainer: Wong Hoi Sing Edison <hswong3i@gmail.com>
+Homepage: https://github.com/libguestfs/libnbd/tags
+Vcs-Browser: https://github.com/alvistack/libguestfs-libnbd
+Vcs-Git: https://github.com/alvistack/libguestfs-libnbd.git
+Build-Depends:
+ debhelper,
+ debhelper-compat (= 10),
+ dh-python,
+ dh-ocaml,
+ bash-completion,
+ fuse3 <!nocheck>,
+ gnutls-bin <!nocheck>,
+ libfuse3-dev,
+ libgnutls28-dev,
+ libncurses5-dev,
+ libxml2-dev,
+ ocaml-findlib,
+ ocaml-nox,
+ ocamlbuild,
+ pkg-config,
+ python3-dev,
+
+Package: libnbd-dev
+Section: libdevel
+Architecture: any
+Description: Network Block Device client library -- development files
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+Depends:
+ ${misc:Depends},
+ libnbd0 (= ${source:Version}),
+
+Package: libnbd0
+Architecture: any
+Description: Network Block Device client library -- shared library
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+
+Package: python3-libnbd
+Architecture: any
+Description: Network Block Device client library -- Python 3 bindings
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+Depends:
+ ${python3:Depends},
+ ${shlibs:Depends},
+ ${misc:Depends},
+
+Package: libnbd-ocaml
+Section: ocaml
+Architecture: any
+Description: Network Block Device client library -- OCaml bindings
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+Depends:
+ ${misc:Depends},
+ ${ocaml:Depends},
+ ${shlibs:Depends},
+ libnbd0 (= ${source:Version}),
+Provides:
+ ${ocaml:Provides},
+
+Package: libnbd-ocaml-dev
+Section: ocaml
+Architecture: amd64
+Description: Network Block Device client library -- OCaml development files
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+Depends:
+ ${misc:Depends},
+ ${ocaml:Depends},
+ ${shlibs:Depends},
+ libnbd-dev (= ${source:Version}),
+ libnbd0 (= ${source:Version}),
+Provides:
+ ${ocaml:Provides},
+
+Package: libnbd-bin
+Section: utils
+Architecture: amd64
+Description: Utilities using the Network Block Device client library
+ NBD — Network Block Device — is a protocol for accessing Block
+ Devices (hard disks and disk-like things) over a Network.
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Provides:
+ nbdfuse,
+Replaces:
+ nbdfuse (<< 1.4.0),
+Conflicts:
+ nbdfuse (<< 1.4.0),

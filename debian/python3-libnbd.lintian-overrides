@@ -1,0 +1,4 @@
+python3-libnbd: copyright-without-copyright-notice
+python3-libnbd: initial-upload-closes-no-bugs
+python3-libnbd: package-has-unnecessary-activation-of-ldconfig-trigger
+python3-libnbd: zero-byte-file-in-doc-directory
