@@ -1,0 +1,3 @@
+libnbd-ocaml-dev: copyright-without-copyright-notice
+libnbd-ocaml-dev: initial-upload-closes-no-bugs
+libnbd-ocaml-dev: zero-byte-file-in-doc-directory
