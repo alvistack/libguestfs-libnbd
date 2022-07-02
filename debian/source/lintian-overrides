@@ -1,0 +1,3 @@
+libnbd source: no-debian-changes
+libnbd source: not-binnmuable-any-depends-any
+libnbd source: weak-library-dev-dependency

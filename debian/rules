@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+SHELL := /bin/bash
+
+override_dh_auto_install:
+	dh_auto_install
+	find debian/tmp -type f -name '*.la' -exec rm -rf {} \;
+	find debian/tmp -type f -name '*.so.owner' -exec rm -rf {} \;
+	find debian/tmp/usr/lib/python*/*-packages -type f -name '*.pyc' -exec rm -rf {} \;
+	fdupes -s debian/tmp/usr/lib/python*/*-packages
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+
+%:
+	dh $@ --with=python3,ocaml
